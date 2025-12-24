@@ -6,6 +6,7 @@ This repository contains a full local development environment powered by Docker 
 - ✅ Message Brokers: Apache Kafka & RabbitMQ
 - ✅ Search: Elasticsearch (dev & prod setups)
 - ✅ UI for Elasticsearch: Kibana
+- ✅ Redis: Single Instance and Cluster
 
 ---
 
