@@ -1,11 +1,14 @@
 {
   "cSpell.words": [
     "AMQP",
+    "appendfsync",
+    "appendonly",
     "bitnami",
     "CERTIFICATEAUTHORITIES",
     "certutil",
     "elif",
     "esdata",
+    "everysec",
     "healthcheck",
     "kibanadata",
     "memlock",

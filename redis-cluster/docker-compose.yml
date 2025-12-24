@@ -1,0 +1,59 @@
+version: "3.9"
+
+services:
+  redis-node-1:
+    image: redis:8.0
+    container_name: redis8-node-1
+    ports:
+      - "7001:7001"
+    volumes:
+      - ~/.docker_data/redis8/cluster/node-1:/usr/share/redis/data
+    command: >
+      redis-server
+      --port 7001
+      --cluster-enabled yes
+      --cluster-config-file nodes.conf
+      --cluster-node-timeout 5000
+      --appendonly yes
+      --appendfsync everysec
+      --aof-use-rdb-preamble yes
+      --dir /usr/share/redis/data
+      --protected-mode no
+
+  redis-node-2:
+    image: redis:8.0
+    container_name: redis8-node-2
+    ports:
+      - "7002:7002"
+    volumes:
+      - ~/.docker_data/redis8/cluster/node-2:/usr/share/redis/data
+    command: >
+      redis-server
+      --port 7002
+      --cluster-enabled yes
+      --cluster-config-file nodes.conf
+      --cluster-node-timeout 5000
+      --appendonly yes
+      --appendfsync everysec
+      --aof-use-rdb-preamble yes
+      --dir /usr/share/redis/data
+      --protected-mode no
+
+  redis-node-3:
+    image: redis:8.0
+    container_name: redis8-node-3
+    ports:
+      - "7003:7003"
+    volumes:
+      - ~/.docker_data/redis8/cluster/node-3:/usr/share/redis/data
+    command: >
+      redis-server
+      --port 7003
+      --cluster-enabled yes
+      --cluster-config-file nodes.conf
+      --cluster-node-timeout 5000
+      --appendonly yes
+      --appendfsync everysec
+      --aof-use-rdb-preamble yes
+      --dir /usr/share/redis/data
+      --protected-mode no
