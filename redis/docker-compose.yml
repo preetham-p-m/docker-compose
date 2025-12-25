@@ -16,3 +16,4 @@ services:
       --aof-use-rdb-preamble yes
       --dir /usr/share/redis/data
       --protected-mode no
+      --enable-debug-command local
