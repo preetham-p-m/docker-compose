@@ -9,10 +9,13 @@
     "elif",
     "esdata",
     "everysec",
+    "flink",
     "healthcheck",
+    "jobmanager",
     "kibanadata",
     "memlock",
     "rabbitmq",
+    "taskmanager",
     "ulimits",
     "xpack"
   ]

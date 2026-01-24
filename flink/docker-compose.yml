@@ -1,0 +1,39 @@
+version: "3.8"
+
+services:
+  jobmanager:
+    image: flink:2.2.0
+    command: jobmanager
+    ports:
+      - "8081:8081" # HOST_PORT (My Machine) : CONTAINER_PORT
+    environment:
+      - |
+        FLINK_PROPERTIES=
+        jobmanager.rpc.address: jobmanager
+        # Process size needs to at least 1GB otherwise flink does not run
+        jobmanager.memory.process.size: 1024m
+        taskmanager.numberOfTaskSlots: 2
+
+  taskmanager-1:
+    image: flink:2.2.0
+    command: taskmanager
+    depends_on:
+      - jobmanager
+    environment:
+      - |
+        FLINK_PROPERTIES=
+        jobmanager.rpc.address: jobmanager
+        taskmanager.memory.process.size: 1024m
+        taskmanager.numberOfTaskSlots: 2
+
+  taskmanager-2:
+    image: flink:2.2.0
+    command: taskmanager
+    depends_on:
+      - jobmanager
+    environment:
+      - |
+        FLINK_PROPERTIES=
+        jobmanager.rpc.address: jobmanager
+        taskmanager.memory.process.size: 1024m
+        taskmanager.numberOfTaskSlots: 2
